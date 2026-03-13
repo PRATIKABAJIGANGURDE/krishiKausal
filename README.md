@@ -1,6 +1,6 @@
-# SmartField Companion / SmartFarm Rover
+# KrishiKausal
 
-The **SmartField Companion** is a comprehensive software suite designed to monitor agricultural metrics and remotely control a 6-wheel or 4-wheel rover. The system consists of a web-based **Dashboard (Frontend)** and a **Raspberry Pi Onboard Agent (Backend)**.
+The **KrishiKausal** is a comprehensive software suite designed to monitor agricultural metrics and remotely control a 6-wheel or 4-wheel rover. The system consists of a web-based **Dashboard (Frontend)** and a **Raspberry Pi Onboard Agent (Backend)**.
 
 It provides a dashboard for tracking agricultural metrics (soil moisture, temperature, pH, NPK, etc.), accompanied by a backend API that interfaces directly with hardware sensors and a physical rover vehicle's motor controller.
 
@@ -42,7 +42,7 @@ The dashboard is built with React, Vite, and Tailwind CSS. You usually run this 
 
 ```bash
 # 1. Navigate to the project directory
-cd smartfield-companion
+cd <project-directory>
 
 # 2. Install Node.js dependencies
 npm install
@@ -60,7 +60,7 @@ The FastAPI backend controls the hardware and reads real-time sensors. It should
 ssh pi@<pi-ip-address>
 
 # 2. Navigate to where you clone this repository
-cd ~/smartfield-companion
+cd ~/<project-directory>
 
 # 3. Create a Python virtual environment and activate it
 python3 -m venv venv
@@ -85,32 +85,32 @@ The API is now running at `http://<pi-ip-address>:8000`.
 To ensure the rover's backend starts automatically every time you power on the Raspberry Pi in the field, you can configure it as a Linux systemd service.
 
 1. **Verify the Service File**:
-   Open `tools/smartfield.service`. Update the `User`, `Group`, `WorkingDirectory`, and `ExecStart` variables to match your deployment layout.
+   Open `tools/krishikausal.service`. Update the `User`, `Group`, `WorkingDirectory`, and `ExecStart` variables to match your deployment layout.
    *(E.g., mapping exactly to the python executable in your `venv`).*
 
 2. **Copy and Enable the Service**:
    Run these commands on the Raspberry Pi:
    ```bash
    # Copy the service file to the systemd directory
-   sudo cp tools/smartfield.service /etc/systemd/system/
+   sudo cp tools/krishikausal.service /etc/systemd/system/
 
    # Reload the systemd daemon
    sudo systemctl daemon-reload
 
    # Enable the service to start automatically on boot
-   sudo systemctl enable smartfield.service
+   sudo systemctl enable krishikausal.service
 
    # Start the service immediately
-   sudo systemctl start smartfield.service
+   sudo systemctl start krishikausal.service
 
    # Check the status of the service
-   sudo systemctl status smartfield.service
+   sudo systemctl status krishikausal.service
    ```
 
 3. **Viewing System Logs**:
    To view live console logs (e.g., debug information, connection events, or Python errors) of the background service:
    ```bash
-   journalctl -u smartfield.service -f
+   journalctl -u krishikausal.service -f
    ```
 
 ---
@@ -118,7 +118,7 @@ To ensure the rover's backend starts automatically every time you power on the R
 ## 🗂️ 4. Project Structure
 
 ```text
-smartfield-companion/
+krishikausal/
 ├── backend/            # FastAPI python server running on the Pi
 │   ├── api/            # API endpoints (`control`, `sensors`, etc.)
 │   ├── config.py       # Hardware GPIO pin configuration
@@ -135,7 +135,7 @@ smartfield-companion/
 
 ## 🚜 Field Workflow Example
 
-1. Power on the Rover in the field (the built-in Raspberry Pi boots up and launches the backend `smartfield.service` automatically).
+1. Power on the Rover in the field (the built-in Raspberry Pi boots up and launches the backend `krishikausal.service` automatically).
 2. Connect your laptop, tablet, or phone to the same Wi-Fi network as the Pi (or the Pi's own Hotspot).
 3. Open the Frontend Dashboard URL (either hosted locally via `npm run dev` on your laptop, or statically deployed alongside the backend).
 4. Go to the **Control** tab to manually drive the rover to the desired location in the field.

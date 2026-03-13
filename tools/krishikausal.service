@@ -1,5 +1,5 @@
 [Unit]
-Description=SmartField Rover Backend
+Description=KrishiKausal Backend
 After=network.target
 
 [Service]
@@ -8,15 +8,15 @@ User=pratik
 Group=pratik
 
 # Working Directory (Change if you cloned elsewhere)
-# Assumes: /home/pratik/smartfield-companion
-WorkingDirectory=/home/pratik/smartfield-companion
+# Assumes: /home/pratik/krishikausal
+WorkingDirectory=/home/pratik/krishikausal
 
 # Environment variables (Optional)
 # ENV=production
 
 # Command to start the server
 # Using python directly to run the uvicorn call in app.py or uvicorn directly
-# Adjust path to python if using a venv: /home/pratik/smartfield-companion/venv/bin/python
+# Adjust path to python if using a venv: /home/pratik/krishikausal/venv/bin/python
 ExecStart=/usr/bin/python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
 
 # Restart on crash

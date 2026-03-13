@@ -1,6 +1,6 @@
 param (
     [string]$Target = "pratik@pratik.local",
-    [string]$RemotePath = "~/smartfield-companion"
+    [string]$RemotePath = "~/krishikausal"
 )
 
 Write-Host "Deploying to $Target..." -ForegroundColor Cyan

@@ -10,7 +10,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from backend.api import control, sensors, suggestions, status
 
-app = FastAPI(title="SmartFarm Rover Backend")
+app = FastAPI(title="KrishiKausal Backend")
 
 # ... (CORS config) ...
 app.add_middleware(
@@ -39,7 +39,7 @@ async def startup_event():
 
 @app.get("/")
 async def root():
-    return {"message": "SmartFarm Rover Backend Online"}
+    return {"message": "KrishiKausal Backend Online"}
 
 if __name__ == "__main__":
     import uvicorn

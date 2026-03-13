@@ -215,7 +215,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="border-t border-border py-3 sm:py-4 mt-6 sm:mt-8">
         <div className="container mx-auto px-4 text-center text-[10px] sm:text-xs text-muted-foreground">
-          SmartFarm Dashboard • IoT Soil Monitoring System
+          KrishiKausal Dashboard • IoT Soil Monitoring System
         </div>
       </footer>
     </div>

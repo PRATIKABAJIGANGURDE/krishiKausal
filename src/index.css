@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* SmartFarm AgriTech Theme */
+    /* KrishiKausal AgriTech Theme */
     --background: 40 30% 97%;
     --foreground: 150 25% 15%;
 
@@ -125,7 +125,12 @@
     font-family: 'Inter', sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Space Grotesk', sans-serif;
   }
 }

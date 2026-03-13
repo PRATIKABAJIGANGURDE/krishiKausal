@@ -22,7 +22,7 @@ export function DashboardHeader() {
             </div>
             <div>
               <h1 className="font-display font-bold text-xl text-foreground">
-                SmartFarm
+                KrishiKausal
               </h1>
               <p className="text-xs text-muted-foreground">
                 IoT Soil Monitoring Dashboard
@@ -35,7 +35,7 @@ export function DashboardHeader() {
               <Clock className="w-3.5 h-3.5" />
               <span>Updated {lastUpdate.toLocaleTimeString()}</span>
             </div>
-            
+
             <Button
               variant="outline"
               size="sm"
